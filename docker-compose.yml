@@ -8,6 +8,10 @@ services:
       EULA: "TRUE"
       TYPE: "PAPER"
       VERSION: "1.19.4"
+      MEMORY: "1G"
+      MAX_MEMORY: "4G"
+      USE_AIKAR_FLAGS: "true"
+      TZ: "Europe/Paris"
     ports:
     - "25565:25565"
     # - "4711:4711"
