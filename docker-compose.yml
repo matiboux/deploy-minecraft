@@ -1,0 +1,21 @@
+version: '3'
+services:
+
+  main:
+    image: itzg/minecraft-server
+    restart: unless-stopped
+    environment:
+      EULA: "TRUE"
+      TYPE: "PAPER"
+      VERSION: "1.19.4"
+    ports:
+    - "25565:25565"
+    # - "4711:4711"
+    volumes:
+    - ./data:/data
+    - ./plugins:/data/plugins
+    - ./maps/world:/data/world
+    - ./maps/world_nether:/data/world_nether
+    - ./maps/world_the_end:/data/world_the_end
+    tty: true
+    stdin_open: true
