@@ -1,25 +1,29 @@
-version: '3'
 services:
 
   main:
+    # Build
     image: itzg/minecraft-server
+    # Deploy
     restart: unless-stopped
     environment:
-      EULA: "TRUE"
-      TYPE: "PAPER"
-      VERSION: "1.19.4"
-      MEMORY: "1G"
-      MAX_MEMORY: "4G"
-      USE_AIKAR_FLAGS: "true"
-      TZ: "Europe/Paris"
-    ports:
-    - "25565:25565"
-    # - "4711:4711"
-    volumes:
-    - ./data:/data
-    - ./plugins:/data/plugins
-    - ./maps/world:/data/world
-    - ./maps/world_nether:/data/world_nether
-    - ./maps/world_the_end:/data/world_the_end
+      EULA: 'TRUE'
+      TYPE: 'PAPER'
+      VERSION: '1.21.1'
+      MEMORY: '4G'
+      MAX_MEMORY: '4G'
+      USE_AIKAR_FLAGS: 'true'
+      TZ: 'Europe/Paris'
+      # ENABLE_RCON: 'true'
+      # RCON_PASSWORD: 'password' # Change this if enabled
     tty: true
     stdin_open: true
+    ports:
+      - "25565:25565"
+      # - "4711:4711"
+      # - "3278:3278" # Dynmap plugin
+    volumes:
+      - ./data:/data
+      - ./logs:/data/logs
+      - ./maps/world:/data/world
+      - ./maps/world_nether:/data/world_nether
+      - ./maps/world_the_end:/data/world_the_end
